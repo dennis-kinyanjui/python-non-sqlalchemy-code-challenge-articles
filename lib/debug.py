@@ -1,13 +1,25 @@
-#!/usr/bin/env python3
-import ipdb;
+from author import Author
+from magazine import Magazine
+from article import Article
 
-from classes.many_to_many import Article
-from classes.many_to_many import Author
-from classes.many_to_many import Magazine
+# Create sample instances to test
+author1 = Author("John Doe")
+magazine1 = Magazine("Tech Today", "Technology")
+magazine2 = Magazine("Health Weekly", "Health")
 
-if __name__ == '__main__':
-    print("HELLO! :) let's debug :vibing_potato:")
+article1 = author1.add_article(magazine1, "The Future of AI")
+article2 = author1.add_article(magazine2, "Healthy Living in 2024")
 
+# Check methods
+print(author1.name)
+print(author1.articles())
+print(author1.magazines())
+print(author1.topic_areas())
 
-    # don't remove this line, it's for debugging!
-    ipdb.set_trace()
+print(magazine1.name)
+print(magazine1.articles())
+print(magazine1.contributors())
+print(magazine1.article_titles())
+print(magazine1.contributing_authors())
+
+print(Article.top_publisher())
